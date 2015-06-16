@@ -67,13 +67,24 @@ int main(void) {
 -----------------------------------------------------------------------*/
 void initLEDs(void) {
 
+	// Init the GREEN LED
 	P1DIR |= 0x01;
+	// INIT the RED LED
 	P1DIR |= 0x40;
+
+	// Set as outputs
 	P1OUT = 0x00;
 
 	return;
 }
 
+
+/*---------------------------------------------------------------------
+  Function Name: sosUpdate
+  Description:   Increment through Morse Code SOS
+  Inputs:        None
+  Returns:       None
+-----------------------------------------------------------------------*/
 void sosUpdate(void){
 
 	const int8_t sosvals[] = {0,0,0,0,1,0,1,0,1,0,1,1,0,1,1,0,1,1,0,1,0,1,0,1,0};
@@ -93,5 +104,4 @@ void sosUpdate(void){
 		P1OUT &= 0xBF;
 	}
 
-	//printf("%d",i);
 }
